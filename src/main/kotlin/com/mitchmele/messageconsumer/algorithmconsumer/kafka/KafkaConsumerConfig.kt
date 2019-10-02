@@ -53,6 +53,8 @@ class KafkaConsumerConfig {
         return QueueChannel()
     }
 
+    //USE THIS FOR OUTBOUND TO RABB
+
 //    @Bean
 //    fun kafkaMessageDrivenChannelAdapter(): KafkaMessageDrivenChannelAdapter<*, *> {
 //        return KafkaMessageDrivenChannelAdapter(kafkaListenerContainerFactory()).apply {
@@ -61,16 +63,16 @@ class KafkaConsumerConfig {
 //    }
     @Bean
     fun kafkaListenerContainerFactory(): KafkaListenerContainerFactory<*> {                                     //switch back to string and add other config
-        return ConcurrentKafkaListenerContainerFactory<String, Object>().apply {
+        return ConcurrentKafkaListenerContainerFactory<String, String>().apply {
             consumerFactory = consumerFactory()
-            setMessageConverter(StringJsonMessageConverter())
-            isBatchListener = true
+//            setMessageConverter(StringJsonMessageConverter())
+            isBatchListener = false
         };
     }
 
 
     @Bean
-    fun consumerFactory(): ConsumerFactory<String, Object> { //switch back to string
+    fun consumerFactory(): ConsumerFactory<String, String> { //switch back to string
         return DefaultKafkaConsumerFactory(consumerConfigs())
     }
 
