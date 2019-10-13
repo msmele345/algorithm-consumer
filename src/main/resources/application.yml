@@ -1,7 +1,16 @@
 spring:
    kafka:
       bootstrap-servers: localhost:9092
+   data:
+     mongodb:
+       uri:  mongodb://localhost/algorithmDomainModels
+       port: 27017
+       host: localhost
+       database: algorithmDomainModels
 
 tbd:
   topic-name: dummy
 
+
+server:
+  port : 8085

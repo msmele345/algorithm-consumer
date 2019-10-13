@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("org.springframework.integration:spring-integration-kafka:3.1.5.RELEASE")
 	compile("org.springframework.boot:spring-boot-starter-amqp")
 	compile("org.springframework.boot:spring-boot-starter-integration")
@@ -24,6 +25,10 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.springframework.kafka:spring-kafka")
+	compile ("org.jetbrains.kotlin:kotlin-test")
+	compile ("org.litote.kmongo:kmongo:3.11.0")
+	compile ("no.skatteetaten.aurora.mockmvc.extensions:mockmvc-extensions-kotlin:0.2.2")
+	testCompile("com.nhaarman:mockito-kotlin:1.5.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.amqp:spring-rabbit-test")
 	testImplementation("org.springframework.integration:spring-integration-test")
